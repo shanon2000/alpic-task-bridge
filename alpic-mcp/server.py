@@ -68,7 +68,10 @@ class BridgeError(Exception):
 
 async def bridge_get(path: str) -> dict:
     url = f"{BRIDGE_BASE_URL}{path}"
-    headers = {"Authorization": f"Bearer {BRIDGE_TOKEN}"}
+    headers = {
+        "Authorization": f"Bearer {BRIDGE_TOKEN}",
+        "ngrok-skip-browser-warning": "1",
+    }
     async with httpx.AsyncClient(timeout=10.0) as client:
         try:
             resp = await client.get(url, headers=headers)
@@ -90,7 +93,11 @@ async def bridge_get(path: str) -> dict:
 
 async def bridge_post(path: str, data: dict) -> dict:
     url = f"{BRIDGE_BASE_URL}{path}"
-    headers = {"Authorization": f"Bearer {BRIDGE_TOKEN}", "Content-Type": "application/json"}
+    headers = {
+        "Authorization": f"Bearer {BRIDGE_TOKEN}",
+        "Content-Type": "application/json",
+        "ngrok-skip-browser-warning": "1",
+    }
     async with httpx.AsyncClient(timeout=10.0) as client:
         try:
             resp = await client.post(url, json=data, headers=headers)

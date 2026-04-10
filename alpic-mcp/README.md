@@ -167,3 +167,7 @@ MCP server 本身不支持 HTTPS。公网部署通过反向代理（Caddy / ngin
 - 无内置认证（MCP 层面依赖 Bearer Token）
 - 3 个工具，无 list_tasks/cancel_task 等
 - 不支持多 worker 调度
+
+### ngrok Free 部署
+
+Bridge 通过 ngrok free 暴露时，ngrok 会显示中间警告页，阻塞 HTTP 请求。MCP Server 在所有对 Bridge 的请求中自动携带 `ngrok-skip-browser-warning: 1` 请求头绕过警告，无需额外配置。

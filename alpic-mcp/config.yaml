@@ -10,7 +10,9 @@ mcp:
 bridge:
   # Base URL of the Alpic Task Bridge server
   # For local dev: http://127.0.0.1:18080
-  # For remote: http://<bridge-host>:<bridge-port>
+  # For remote (via ngrok free): http://<ngrok-url>.ngrok-free.app
+  # Note: ngrok free shows an interstitial warning page that blocks HTTP requests.
+  #       The ngrok-skip-browser-warning header is auto-added to bypass it.
   base_url: "http://127.0.0.1:18080"
   # Token for bridge authentication (must match bridge's token)
   token: "CHANGE-ME-IN-PRODUCTION"

@@ -24,6 +24,7 @@ HEADERS = {
     "Authorization": f"Bearer {BRIDGE_TOKEN}",
     "Content-Type": "application/json",
     "Accept": "application/json, text/event-stream",
+    "ngrok-skip-browser-warning": "1",
 }
 
 
