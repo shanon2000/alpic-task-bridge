@@ -118,7 +118,7 @@ async def bridge_post(path: str, data: dict) -> dict:
 from fastmcp import FastMCP
 
 # stateless_http=True: each request is independent, no session tracking needed
-mcp = FastMCP(MCP_NAME, instructions=MCP_INSTRUCTIONS, stateless_http=True)
+mcp = FastMCP(MCP_NAME, instructions=MCP_INSTRUCTIONS)
 
 
 @mcp.tool()
@@ -225,7 +225,7 @@ def run_remote():
     import uvicorn
     logger.info(f"Starting MCP server (streamable-http) on {SERVER_HOST}:{SERVER_PORT}")
     logger.info(f"Bridge: {BRIDGE_BASE_URL}")
-    app = mcp.streamable_http_app()
+    app = mcp.http_app(stateless_http=True)
     uvicorn.run(app, host=SERVER_HOST, port=SERVER_PORT, log_level="info")
 
 
