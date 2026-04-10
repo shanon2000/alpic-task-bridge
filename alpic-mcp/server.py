@@ -115,7 +115,7 @@ async def bridge_post(path: str, data: dict) -> dict:
         raise BridgeError(f"Invalid JSON from bridge: {resp.text[:200]}", status_code=resp.status_code)
 
 
-from mcp.server.fastmcp import FastMCP
+from fastmcp import FastMCP
 
 # stateless_http=True: each request is independent, no session tracking needed
 mcp = FastMCP(MCP_NAME, instructions=MCP_INSTRUCTIONS, stateless_http=True)
