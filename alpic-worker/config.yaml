@@ -1,0 +1,39 @@
+# Alpic Worker V1 - Configuration
+# All paths relative to project root
+
+worker:
+  poll_interval_seconds: 5
+  bridge_url: "http://127.0.0.1:18080"  # Base URL of the bridge server
+  token: "CHANGE-ME-IN-PRODUCTION"  # Must match bridge's token
+
+state:
+  state_file: "./state/worker_state.json"
+
+# Allowed directories for task execution
+allowed_dirs:
+  - "./allowed_write"
+  - "./temp"
+  - "./work"
+
+# Supported task types (currently stubs - implementation in later phases)
+supported_task_types:
+  - "write_file"
+  - "run_python"
+  - "run_shell_safe"
+
+# Python configuration for run_python tasks
+python:
+  # Path to python interpreter. If empty, uses "python" from PATH.
+  python_path: ""  # e.g., "python" or "C:\\Python312\\python.exe"
+  # Default timeout in seconds for run_python tasks
+  default_timeout_seconds: 30
+
+# Shell safe configuration for run_shell_safe tasks
+shell:
+  # Only these commands are allowed. Very strict whitelist.
+  # On Windows with shell=False, only actual executables work (python, py, etc.)
+  # Shell built-ins (echo, dir, type) do NOT work with shell=False.
+  allowed_commands:
+    - "python"
+    - "py"
+  default_timeout_seconds: 30

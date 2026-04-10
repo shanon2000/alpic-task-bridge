@@ -1,0 +1,12 @@
+# Alpic Task Bridge V1.1 - Configuration
+# SECURITY: Change the token before deploying to any network other than localhost
+
+bridge:
+  host: "127.0.0.1"      # Bind address - use 0.0.0.0 for all interfaces
+  port: 18080             # Listen port
+  token: "CHANGE-ME-IN-PRODUCTION"  # REQUIRED: Change this token before deployment
+
+storage:
+  # Data directories - relative to bridge.py location, resolved to absolute
+  task_dir: "./tasks"     # Task JSON files stored here
+  log_dir: "./logs"       # Log files stored here

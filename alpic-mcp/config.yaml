@@ -1,0 +1,25 @@
+# Alpic MCP Server V1.1 - Remote Deployment Configuration
+# Wraps the existing Alpic Task Bridge as a remote-accessible MCP server
+
+mcp:
+  # Server name exposed to MCP clients
+  name: "alpic-bridge"
+  # Instructions shown to MCP clients
+  instructions: "Minimal MCP wrapper for Alpic Task Bridge. Use create_task to submit tasks, get_task_status to query results, and get_bridge_health to check bridge health."
+
+bridge:
+  # Base URL of the Alpic Task Bridge server
+  # For local dev: http://127.0.0.1:18080
+  # For remote: http://<bridge-host>:<bridge-port>
+  base_url: "http://127.0.0.1:18080"
+  # Token for bridge authentication (must match bridge's token)
+  token: "CHANGE-ME-IN-PRODUCTION"
+
+server:
+  # Transport mode: "streamable-http" (remote) or "stdio" (local)
+  # Use "streamable-http" for remote deployment
+  transport: "streamable-http"
+  # Host to bind for remote mode
+  host: "0.0.0.0"
+  # Port to listen on for remote mode
+  port: 8081

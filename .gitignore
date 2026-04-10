@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Logs
+*.log
+logs/
+
+# Task files (runtime state)
+tasks/*.json
+state/worker_state.json
+
+# Temp files
+*.tmp
+*.temp
+*.stdout
+*.stderr
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Secrets (should not be in repo, but belt-and-suspenders)
+*.pem
+*.key
+.env
